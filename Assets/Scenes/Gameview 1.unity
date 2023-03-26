@@ -243,7 +243,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tribalPrefabs:
   - {fileID: 1573281472736089497, guid: 5bf11801239e73845bc7c55ff53a3ef1, type: 3}
-  numberToSpawn: 30
+  - {fileID: 1573281472736089497, guid: 023675b0f2e8c804d8240bc6b914e4d4, type: 3}
+  numberToSpawn: 15
 --- !u!4 &224130753
 Transform:
   m_ObjectHideFlags: 0
@@ -556,11 +557,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652737614}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: bf2ecc277183e92488482e7e4b7cf8fa, type: 3}
   m_Controller: {fileID: 9100000, guid: 4fad58187ce02f84e8ec537d2d38dd9a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1215,6 +1216,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1488802136369304441, guid: 0191ce183621d00438e799f2b26fde60,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: bf2ecc277183e92488482e7e4b7cf8fa, type: 3}
+    - target: {fileID: 1488802136369304441, guid: 0191ce183621d00438e799f2b26fde60,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4fad58187ce02f84e8ec537d2d38dd9a, type: 2}
     - target: {fileID: 1758691347702819391, guid: 0191ce183621d00438e799f2b26fde60,
         type: 3}
       propertyPath: m_IsActive
@@ -1298,6 +1309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Purple Pant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf2ecc277183e92488482e7e4b7cf8fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf2ecc277183e92488482e7e4b7cf8fa, type: 3}

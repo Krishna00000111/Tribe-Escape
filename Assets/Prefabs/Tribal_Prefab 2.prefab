@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6258894582011223102}
   - component: {fileID: 6258894582011223103}
   m_Layer: 0
-  m_Name: Tribal_Prefab 1
+  m_Name: Tribal_Prefab 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e4dec8e3b15ed2d4f9341e2d78388dff, type: 2}
+      objectReference: {fileID: 2100000, guid: 73fceada90b5cb943a4aae6f2d79793b, type: 2}
     - target: {fileID: 5074512353664290214, guid: e99b61f1eff1d4447ab6334d14e0bd82,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
