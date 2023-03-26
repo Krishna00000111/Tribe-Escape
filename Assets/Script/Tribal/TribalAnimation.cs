@@ -16,5 +16,7 @@ public class TribalAnimation : MonoBehaviour
         tri_Anim.SetBool("isRun", tribal.IsSprinting());
 
         tri_Anim.SetBool("isAttacking", tribal.DoingAttack());
+
+        //tri_Anim.SetBool("isDancing", tribal.isDancing);
     }
 }

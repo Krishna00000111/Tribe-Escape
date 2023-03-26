@@ -23,6 +23,7 @@ public class TribalAI : MonoBehaviour
     private bool isRun;
     private bool isAttacking;
     private bool isWalking = false;
+    private bool isDancing = false;
     
     //Patroling
     public Vector3 walkPoint;
@@ -56,6 +57,7 @@ public class TribalAI : MonoBehaviour
             isWalking = true;
             isRun = false;
             isAttacking = false;
+            isDancing = false;
             
         }
         if (!playerInAttackRange && playerInSightRange)
@@ -63,7 +65,7 @@ public class TribalAI : MonoBehaviour
             Chasing();
             isRun = true;
             isAttacking = false;
-            
+            isDancing = false;
         }
         if (playerInSightRange && playerInAttackRange )
         {
@@ -71,6 +73,7 @@ public class TribalAI : MonoBehaviour
             isWalking = false;
             isRun = false;
             isAttacking = true;
+            isDancing = false;
         }
 
 
@@ -138,6 +141,16 @@ public class TribalAI : MonoBehaviour
             Invoke(nameof(ResetAttack), timeBtwAttacks);
         }
     }
+
+   /*private void Dancing()
+    {
+        if (isDancing)
+        {
+            isWalking = false;
+            isRun = false;
+            isAttacking = false;
+        }
+    }*/
 
     private void ResetAttack()
     {
