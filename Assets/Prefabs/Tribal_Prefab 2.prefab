@@ -91,7 +91,7 @@ MonoBehaviour:
   stoneThrowSpeed: 35
   handPos: {fileID: 411384745198395000}
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 30
+  walkPointRange: 50
   timeBtwAttacks: 0.8
   sightRange: 9
   attackRange: 7
