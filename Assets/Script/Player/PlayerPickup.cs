@@ -59,8 +59,10 @@ public class PlayerPickup : MonoBehaviour
             pickedObject.GetComponent<Rigidbody>().isKinematic = false;
 
             // Apply force to object based on player's movement
-            
-            pickedObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 6f);
+
+            Vector3 movement = pickedObject.transform.position;
+            float forceMagnitude = Mathf.Clamp(0, 0, movement.magnitude * 5000);
+            pickedObject.GetComponent<Rigidbody>().AddForce(movement.normalized * forceMagnitude *50);
 
             pickedObject.GetComponent<CapsuleCollider>().isTrigger = false;
 
