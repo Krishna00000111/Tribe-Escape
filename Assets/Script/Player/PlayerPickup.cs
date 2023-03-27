@@ -28,7 +28,7 @@ public class PlayerPickup : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        bool isHit = Physics.SphereCast(transform.position, sphereRadius, transform.forward, out hit, Mathf.Infinity, layerMask);
+        bool isHit = Physics.SphereCast(transform.position, sphereRadius,Vector3.forward, out hit, layerMask);
         if (isHit && !isHolding && playerMove.holdStrength > 0)
         {
             isHolding = true;
@@ -47,7 +47,7 @@ public class PlayerPickup : MonoBehaviour
             pickedObject.transform.parent = pickupPoint.transform;
 
             pickedObject.transform.localPosition = new Vector3(0, 0.3f, 0);
-            pickedObject.transform.localRotation = Quaternion.Euler(90,0,0);
+            pickedObject.transform.localRotation = Quaternion.Euler(0,0,0);
         }
 
         if(playerMove.pickedLost && pickedObject != null && playerMove.holdStrength <= 0)
