@@ -10,7 +10,14 @@ public class PlayerMove : MonoBehaviour
 
     public Joystick joystick;
 
+    public int holdStrength;
+
     private Rigidbody player_rb;
+
+    private PlayerPickup playerPickup;
+
+    [HideInInspector]
+    public bool pickedLost;
 
     private float horizonrtalInput;
     private float verticalInput;
@@ -18,8 +25,6 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector]
     public bool isRunning;
 
-    [HideInInspector]
-    public bool isHolding;
 
     #endregion
 
@@ -28,22 +33,21 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         player_rb = GetComponent<Rigidbody>();
-    }
-    private void FixedUpdate()
-    {
-        HandleMovement();
+        playerPickup = GetComponent<PlayerPickup>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+
+        if (holdStrength == 0)
         {
-            isHolding = true;
+            pickedLost = true;
+            
         }
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            isHolding = false;
-        }
+    }
+    private void FixedUpdate()
+    {
+        HandleMovement();
     }
 
 
@@ -66,5 +70,22 @@ public class PlayerMove : MonoBehaviour
             isRunning = false;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Hurt"))
+        {
+            holdStrength -= 1;
+            print(holdStrength);
+        }
+
+        if(holdStrength <= -1)
+        {
+            holdStrength = 2;
+        }
+
+        
+    }
+
     #endregion 
 }

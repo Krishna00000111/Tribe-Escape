@@ -9,16 +9,20 @@ public class PlayerAnimation : MonoBehaviour
     private Animator playerAnim;
     private int holdLayerIndex;
 
-    public PlayerMove player;
+    private  PlayerMove player;
+    private PlayerPickup playerPickup;
 
     float targetLayerValue = 1;
 
     #endregion
 
     #region Private Methods
-    // Start is called before the first frame update
+
+    
     void Awake()
     {
+        player = GetComponentInParent<PlayerMove>();
+        playerPickup = GetComponentInParent<PlayerPickup>();
         playerAnim = GetComponent<Animator>();
         holdLayerIndex = playerAnim.GetLayerIndex("UpperBody");
     }
@@ -27,7 +31,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         playerAnim.SetBool("isRunning", player.isRunning);
 
-        if (player.isHolding)
+        if (playerPickup.isHolding)
         {
             playerAnim.SetLayerWeight(holdLayerIndex, targetLayerValue);
         }
