@@ -7,7 +7,11 @@ public class PlayerAnimation : MonoBehaviour
     #region Variables
 
     private Animator playerAnim;
+    private int holdLayerIndex;
+
     public PlayerMove player;
+
+    float targetLayerValue = 1;
 
     #endregion
 
@@ -16,11 +20,21 @@ public class PlayerAnimation : MonoBehaviour
     void Awake()
     {
         playerAnim = GetComponent<Animator>();
+        holdLayerIndex = playerAnim.GetLayerIndex("UpperBody");
     }
 
     private void Update()
     {
         playerAnim.SetBool("isRunning", player.isRunning);
+
+        if (player.isHolding)
+        {
+            playerAnim.SetLayerWeight(holdLayerIndex, targetLayerValue);
+        }
+        else
+        {
+            playerAnim.SetLayerWeight(holdLayerIndex, 0);
+        }
     }
 
     #endregion

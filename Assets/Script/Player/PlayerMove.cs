@@ -18,6 +18,9 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector]
     public bool isRunning;
 
+    [HideInInspector]
+    public bool isHolding;
+
     #endregion
 
 
@@ -31,7 +34,19 @@ public class PlayerMove : MonoBehaviour
         HandleMovement();
     }
 
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            isHolding = true;
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            isHolding = false;
+        }
+    }
+
+
     private void HandleMovement()
     {
         horizonrtalInput = joystick.Horizontal;
