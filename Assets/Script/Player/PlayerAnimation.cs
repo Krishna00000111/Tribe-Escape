@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    #region Variables
+
     private Animator playerAnim;
     public PlayerMove player;
+
+    #endregion
+
+    #region Private Methods
     // Start is called before the first frame update
     void Awake()
     {
@@ -14,6 +20,8 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        playerAnim.SetBool("isRunning", player.IsRunning());
+        playerAnim.SetBool("isRunning", player.isRunning);
     }
+
+    #endregion
 }

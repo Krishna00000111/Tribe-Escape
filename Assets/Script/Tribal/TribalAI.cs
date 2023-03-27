@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class TribalAI : MonoBehaviour
 {
+    #region Variables
+
     public NavMeshAgent agent;
 
     public Transform targetPlayer;
@@ -40,6 +42,10 @@ public class TribalAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+
+    #endregion
+
+    #region Private Methods
     private void Awake()
     {
         targetPlayer = GameObject.Find("Player").transform;
@@ -176,4 +182,5 @@ public class TribalAI : MonoBehaviour
         return isAttacking;
     }
 
+    #endregion
 }
