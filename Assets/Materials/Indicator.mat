@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Universal
-  m_Shader: {fileID: 4800000, guid: 313fcf3aebc04cf4ab4f8c5f2850be7f, type: 3}
+  m_Name: Indicator
+  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 0a36f069e0502014baeaebefb2c268fc, type: 3}
+        m_Texture: {fileID: 2800000, guid: d161741021ac7084887e8485601c5cd1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0a36f069e0502014baeaebefb2c268fc, type: 3}
+        m_Texture: {fileID: 2800000, guid: d161741021ac7084887e8485601c5cd1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -83,9 +83,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorMask: 15
     - _Cull: 2
-    - _Culling: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
@@ -96,42 +94,23 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Offset: 0
-    - _OutlineWidth: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _ReadMask: 255
     - _ReceiveShadows: 1
-    - _RimStep: 0
-    - _RimStepSmooth: 0
-    - _ShadowStep: 0
-    - _ShadowStepSmooth: 0
-    - _Smoothness: 0.48
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularStep: 0
-    - _SpecularStepSmooth: 0
     - _SrcBlend: 1
-    - _Stencil: 0
-    - _StencilComp: 0
-    - _StencilFail: 0
-    - _StencilOp: 0
-    - _StencilZFail: 0
     - _Surface: 0
     - _WorkflowMode: 1
-    - _WriteMask: 255
-    - _ZTest: 2
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 753.5094, g: 753.5094, b: 753.5094, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _BaseColor: {r: 1, g: 0.25943398, b: 0.25943398, a: 1}
+    - _Color: {r: 1, g: 0.25943395, b: 0.25943395, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &5452664192330715703
+--- !u!114 &2767317156584690909
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

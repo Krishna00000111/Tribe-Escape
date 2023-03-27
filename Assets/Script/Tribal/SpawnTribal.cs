@@ -7,7 +7,7 @@ public class SpawnTribal : MonoBehaviour
     public GameObject[] tribalPrefabs;
     public int numberToSpawn;
 
-    
+    public int maxPos, minPos;
 
     private void Start()
     {
@@ -23,7 +23,7 @@ public class SpawnTribal : MonoBehaviour
             //int specificTribalIndex = 0 ;
             int randomTribalIndex = Random.Range(0, tribalPrefabs.Length);
 
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-40, 40), 0, Random.Range(-40, 40));
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(minPos, maxPos), 0, Random.Range(minPos, maxPos));
 
             Instantiate(tribalPrefabs[randomTribalIndex], randomSpawnPosition, Quaternion.identity);
         }

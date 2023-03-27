@@ -15,6 +15,8 @@ public class TribalAI : MonoBehaviour
 
     public float stoneThrowSpeed;
 
+    public GameObject directionArrow;
+
     public GameObject handPos;
 
     private float tribalSpeed;
@@ -53,12 +55,13 @@ public class TribalAI : MonoBehaviour
 
         if (!playerInAttackRange && !playerInSightRange)
         {
+
             Patroling();
             isWalking = true;
             isRun = false;
             isAttacking = false;
             isDancing = false;
-            
+            directionArrow.SetActive(false);
         }
         if (!playerInAttackRange && playerInSightRange)
         {
@@ -66,6 +69,7 @@ public class TribalAI : MonoBehaviour
             isRun = true;
             isAttacking = false;
             isDancing = false;
+            directionArrow.SetActive(true);
         }
         if (playerInSightRange && playerInAttackRange )
         {
@@ -74,6 +78,7 @@ public class TribalAI : MonoBehaviour
             isRun = false;
             isAttacking = true;
             isDancing = false;
+            directionArrow.SetActive(true);
         }
 
 
@@ -82,6 +87,9 @@ public class TribalAI : MonoBehaviour
 
     private void Patroling() 
     {
+        
+
+
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -125,6 +133,8 @@ public class TribalAI : MonoBehaviour
             ///
             /*Vector3 throwPos = new Vector3(transform.position.x - .5f,transform.position.y + 2f, transform.position.z);*/
             //attack animation
+
+            
 
             isRun = false;
             isWalking = false;
