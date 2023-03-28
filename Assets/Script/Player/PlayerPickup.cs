@@ -6,7 +6,7 @@ public class PlayerPickup : MonoBehaviour
 {
     public Transform pickupPoint;
 
-    public float sphereRadius = 1f;
+    public float sphereRadius;
     public LayerMask layerMask;
 
     private GameObject pickedObject = null;
@@ -28,13 +28,10 @@ public class PlayerPickup : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        bool isHit = Physics.SphereCast(transform.position, sphereRadius,Vector3.forward, out hit, layerMask);
+        bool isHit = Physics.SphereCast(transform.position, sphereRadius, Vector3.forward, out hit, 5f, layerMask);
         if (isHit && !isHolding && playerMove.holdStrength > 0)
         {
             isHolding = true;
-
-
-
             pickedObject = hit.collider.gameObject;
             pickedObject.GetComponent<Rigidbody>().isKinematic = true;
             pickedObject.GetComponent<CapsuleCollider>().isTrigger = true;

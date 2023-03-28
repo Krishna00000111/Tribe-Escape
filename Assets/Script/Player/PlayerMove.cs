@@ -76,7 +76,7 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Hurt"))
         {
             holdStrength -= 1;
-            print(holdStrength);
+            
         }
 
         if(holdStrength <= -1)
