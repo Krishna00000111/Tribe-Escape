@@ -6,6 +6,8 @@ public class PlayerPickup : MonoBehaviour
 {
     public Transform pickupPoint;
 
+    public Transform sphereOrigin;
+
     public float sphereRadius;
     public LayerMask layerMask;
 
@@ -28,7 +30,7 @@ public class PlayerPickup : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        bool isHit = Physics.SphereCast(transform.position, sphereRadius, Vector3.forward, out hit, 3f, layerMask);
+        bool isHit = Physics.SphereCast(sphereOrigin.position, sphereRadius, Vector3.forward, out hit, 5f, layerMask);
         if (isHit && !isHolding && playerMove.holdStrength > 0)
         {
             isHolding = true;
