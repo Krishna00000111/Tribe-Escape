@@ -28,13 +28,14 @@ public class PlayerPickup : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        bool isHit = Physics.SphereCast(transform.position, sphereRadius, Vector3.forward, out hit, 5f, layerMask);
+        bool isHit = Physics.SphereCast(transform.position, sphereRadius, Vector3.forward, out hit, 3f, layerMask);
         if (isHit && !isHolding && playerMove.holdStrength > 0)
         {
             isHolding = true;
             pickedObject = hit.collider.gameObject;
             pickedObject.GetComponent<Rigidbody>().isKinematic = true;
             pickedObject.GetComponent<CapsuleCollider>().isTrigger = true;
+            pickedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             prevPosition = pickedObject.transform.position;
 
 
@@ -54,7 +55,7 @@ public class PlayerPickup : MonoBehaviour
             
 
             pickedObject.GetComponent<Rigidbody>().isKinematic = false;
-
+            
             // Apply force to object based on player's movement
 
             Vector3 movement = pickedObject.transform.position;
