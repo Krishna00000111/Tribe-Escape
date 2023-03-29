@@ -18,6 +18,7 @@ public class PlayerPickup : MonoBehaviour
     public int maxHoldStrength;
 
     private PlayerMove playerMove;
+    private PlayerDrop playerDrop;
 
     [HideInInspector]
     public bool isHolding;
@@ -25,6 +26,7 @@ public class PlayerPickup : MonoBehaviour
     private void Start()
     {
         playerMove = GetComponent<PlayerMove>();
+        playerDrop = FindObjectOfType<PlayerDrop>();
     }
 
     private void Update()
@@ -50,11 +52,9 @@ public class PlayerPickup : MonoBehaviour
             pickedObject.transform.localRotation = Quaternion.Euler(0,0,0);
         }
 
-        if(playerMove.pickedLost && pickedObject != null && playerMove.holdStrength <= 0)
+        if(playerMove.pickedLost && pickedObject != null && playerMove.holdStrength <= 0 )
         {
             isHolding = false;
-
-            
 
             pickedObject.GetComponent<Rigidbody>().isKinematic = false;
             
