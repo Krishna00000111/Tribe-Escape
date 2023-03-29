@@ -70,8 +70,15 @@ public class PlayerPickup : MonoBehaviour
 
             pickedObject = null;
         }
+
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Drop"))
+        {
+            playerMove.holdStrength = 0;
+        }
+    }
 
 }
