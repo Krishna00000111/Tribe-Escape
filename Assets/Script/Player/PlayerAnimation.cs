@@ -11,9 +11,9 @@ public class PlayerAnimation : MonoBehaviour
 
     private  PlayerMove player;
     private PlayerPickup playerPickup;
+    private PlayerDrop playerDrop;
 
     float targetLayerValue = 1;
-
     #endregion
 
     #region Private Methods
@@ -23,6 +23,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         player = GetComponentInParent<PlayerMove>();
         playerPickup = GetComponentInParent<PlayerPickup>();
+        playerDrop = FindObjectOfType<PlayerDrop>();
         playerAnim = GetComponent<Animator>();
         holdLayerIndex = playerAnim.GetLayerIndex("UpperBody");
     }
@@ -30,6 +31,9 @@ public class PlayerAnimation : MonoBehaviour
     private void Update()
     {
         playerAnim.SetBool("isRunning", player.isRunning);
+
+        playerAnim.SetBool("onBoat", playerDrop.onBoat);
+
 
         if (playerPickup.isHolding)
         {
@@ -39,6 +43,7 @@ public class PlayerAnimation : MonoBehaviour
         {
             playerAnim.SetLayerWeight(holdLayerIndex, 0);
         }
+
     }
 
     #endregion

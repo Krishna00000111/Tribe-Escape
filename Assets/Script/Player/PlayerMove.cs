@@ -38,12 +38,12 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-
         if (holdStrength == 0)
         {
             pickedLost = true;
             
         }
+
     }
     private void FixedUpdate()
     {

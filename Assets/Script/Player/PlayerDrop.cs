@@ -8,11 +8,17 @@ public class PlayerDrop : MonoBehaviour
     private int requiredLog;
 
     public GameObject boatPrefab;
+    private GameObject realPlayer;
+    public Transform boatSeat;
+
+    [HideInInspector]
+    public bool onBoat;
 
     private int currentLogDetected;
 
     private void Start()
     {
+        realPlayer = GameObject.Find("Player");
         currentLogDetected = 0;
         boatPrefab.SetActive(false);
     }
@@ -23,6 +29,8 @@ public class PlayerDrop : MonoBehaviour
         {
             Debug.Log("Spawn The Boat !!!");
             boatPrefab.SetActive(true);
+            onBoat = true;
+            realPlayer.transform.position = boatSeat.position;
         }
     }
 
