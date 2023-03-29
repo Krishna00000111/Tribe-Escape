@@ -71,6 +71,29 @@ public class PlayerPickup : MonoBehaviour
             pickedObject = null;
         }
 
+        if (playerDrop.missionCompleted)
+        {
+            if (!isHolding) return;
+
+            isHolding = false;
+
+            pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+
+            // Apply force to object based on player's movement
+
+            Vector3 movement = pickedObject.transform.position;
+            float forceMagnitude = Mathf.Clamp(0, 0, movement.magnitude * 5000);
+            pickedObject.GetComponent<Rigidbody>().AddForce(movement.normalized * forceMagnitude * 50);
+
+            pickedObject.GetComponent<CapsuleCollider>().isTrigger = false;
+
+            pickedObject.transform.parent = null;
+
+            pickedObject.SetActive(false);
+
+            pickedObject = null;
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)

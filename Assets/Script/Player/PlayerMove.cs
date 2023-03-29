@@ -8,13 +8,21 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
 
+    [SerializeField] private float boatSpeed;
+
     public Joystick joystick;
+
+    public GameObject directionCicle;
 
     public int holdStrength;
 
     private Rigidbody player_rb;
 
     private PlayerPickup playerPickup;
+
+    private PlayerDrop playerDrop;
+
+
 
     [HideInInspector]
     public bool pickedLost;
@@ -34,6 +42,7 @@ public class PlayerMove : MonoBehaviour
     {
         player_rb = GetComponent<Rigidbody>();
         playerPickup = GetComponent<PlayerPickup>();
+        playerDrop = FindObjectOfType<PlayerDrop>();
     }
 
     private void Update()
@@ -48,27 +57,52 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         HandleMovement();
+        HandleBoat();
     }
 
 
     private void HandleMovement()
     {
+        if (playerDrop.onBoat) return;
+
+            horizonrtalInput = joystick.Horizontal;
+            verticalInput = joystick.Vertical;
+
+            player_rb.velocity = new Vector3(joystick.Horizontal * moveSpeed, player_rb.velocity.y,
+                joystick.Vertical * moveSpeed);
+
+            if (joystick.Horizontal != 0 || joystick.Vertical != 0)
+            {
+                transform.rotation = Quaternion.LookRotation(player_rb.velocity);
+
+                isRunning = true;
+            }
+            else
+            {
+                isRunning = false;
+            }
+        
+    }
+
+    private void HandleBoat()
+    {
+        if (!playerDrop.onBoat) return;
+
+        Rigidbody boat = GameObject.Find("Boot").GetComponent<Rigidbody>();
+
         horizonrtalInput = joystick.Horizontal;
         verticalInput = joystick.Vertical;
 
-        player_rb.velocity = new Vector3(joystick.Horizontal * moveSpeed, player_rb.velocity.y,
-            joystick.Vertical * moveSpeed);
-        
-        if(joystick.Horizontal != 0 || joystick.Vertical != 0)
-        {
-            transform.rotation = Quaternion.LookRotation(player_rb.velocity);
+        boat.velocity = new Vector3(joystick.Horizontal * boatSpeed, boat.velocity.y,
+            joystick.Vertical * boatSpeed);
 
-            isRunning = true;
-        }
-        else
-        {
-            isRunning = false;
-        }
+        boat.rotation = Quaternion.LookRotation(boat.velocity);
+
+        transform.rotation = boat.rotation;
+
+        boat.transform.localRotation = boat.transform.rotation;
+
+        directionCicle.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
