@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6404278092029055417}
   - component: {fileID: 9152554381154297203}
   - component: {fileID: 4721695052656355373}
-  - component: {fileID: -3562417161652870668}
+  - component: {fileID: -1454010753174901017}
   m_Layer: 0
   m_Name: treeFallLarge
   m_TagString: Untagged
@@ -102,8 +102,8 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.024, y: 4.2770004, z: 0}
   m_TimeToStationary: 0.5
---- !u!64 &-3562417161652870668
-MeshCollider:
+--- !u!65 &-1454010753174901017
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -112,7 +112,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -750247594148720531, guid: c562e014054ad8446a1b8977cde66492, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.7642899, y: 8.554859, z: 2.6311827}
+  m_Center: {x: 0.024239957, y: 4.2774296, z: 0}

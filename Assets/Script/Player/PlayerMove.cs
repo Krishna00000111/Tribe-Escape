@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
 
     private PlayerDrop playerDrop;
 
-
+    public GameObject boatPaddle;
 
     [HideInInspector]
     public bool pickedLost;
@@ -43,6 +43,7 @@ public class PlayerMove : MonoBehaviour
         player_rb = GetComponent<Rigidbody>();
         playerPickup = GetComponent<PlayerPickup>();
         playerDrop = FindObjectOfType<PlayerDrop>();
+        boatPaddle.SetActive(false);
     }
 
     private void Update()
@@ -50,7 +51,7 @@ public class PlayerMove : MonoBehaviour
         if (holdStrength == 0)
         {
             pickedLost = true;
-            
+            print(holdStrength);
         }
 
     }
@@ -59,7 +60,6 @@ public class PlayerMove : MonoBehaviour
         HandleMovement();
         HandleBoat();
     }
-
 
     private void HandleMovement()
     {
@@ -88,15 +88,19 @@ public class PlayerMove : MonoBehaviour
     {
         if (!playerDrop.onBoat) return;
 
+        //boatPaddle.SetActive(true);
+
         Rigidbody boat = GameObject.Find("Boot").GetComponent<Rigidbody>();
 
         horizonrtalInput = joystick.Horizontal;
         verticalInput = joystick.Vertical;
 
-        boat.velocity = new Vector3(joystick.Horizontal * boatSpeed, boat.velocity.y,
-            joystick.Vertical * boatSpeed);
+        //boat.velocity = new Vector3(joystick.Horizontal * boatSpeed, boat.velocity.y,joystick.Vertical * boatSpeed);
 
-        boat.rotation = Quaternion.LookRotation(boat.velocity);
+        boat.AddForce(Vector3.forward * verticalInput * moveSpeed);
+
+        Quaternion targetRotation = Quaternion.LookRotation(boat.velocity);
+        boat.transform.rotation = Quaternion.Slerp(boat.transform.rotation, targetRotation, Time.deltaTime * 5f);
 
         transform.rotation = boat.rotation;
 

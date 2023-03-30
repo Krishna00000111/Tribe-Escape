@@ -26,8 +26,8 @@ public class TribalAI : MonoBehaviour
     //animation triggers
     private bool isRun;
     private bool isAttacking;
-    private bool isWalking = false;
-    private bool isDancing = false;
+    bool isWalking ;
+    bool isDancing ;
     
     //Patroling
     public Vector3 walkPoint;

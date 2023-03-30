@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6141359399120112189}
   - component: {fileID: 8277205568387514103}
   - component: {fileID: 9097885204371422060}
-  - component: {fileID: -3598030989188520760}
+  - component: {fileID: -4520205237531029390}
   m_Layer: 0
   m_Name: rockA
   m_TagString: Untagged
@@ -101,8 +101,8 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.112, y: 0.98200005, z: 0.127}
   m_TimeToStationary: 0.5
---- !u!64 &-3598030989188520760
-MeshCollider:
+--- !u!65 &-4520205237531029390
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -111,7 +111,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3573931800114560834, guid: 4f4461f38ec0d8045a0f05b88d58b0a1, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.7759082, y: 1.9634999, z: 2.1620584}
+  m_Center: {x: 0.112045765, y: 0.98174995, z: 0.12746122}

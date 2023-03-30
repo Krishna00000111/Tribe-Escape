@@ -43,7 +43,7 @@ public class PlayerPickup : MonoBehaviour
             prevPosition = pickedObject.transform.position;
 
 
-            pickedObject.transform.position = Vector3.Lerp(prevPosition, pickupPoint.position, 0.5f * 
+            pickedObject.transform.position = Vector3.Lerp(prevPosition, pickupPoint.position, 0.5f* 
                 Time.deltaTime);
 
             pickedObject.transform.parent = pickupPoint.transform;
@@ -67,6 +67,10 @@ public class PlayerPickup : MonoBehaviour
             pickedObject.GetComponent<CapsuleCollider>().isTrigger = false;
 
             pickedObject.transform.parent = null;
+
+            playerMove.holdStrength = 2;
+
+            pickedObject.layer = 0;
 
             pickedObject = null;
         }
@@ -92,6 +96,8 @@ public class PlayerPickup : MonoBehaviour
             pickedObject.SetActive(false);
 
             pickedObject = null;
+
+
         }
 
     }
