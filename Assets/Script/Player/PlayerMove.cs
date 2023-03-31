@@ -95,20 +95,10 @@ public class PlayerMove : MonoBehaviour
         horizonrtalInput = joystick.Horizontal;
         verticalInput = joystick.Vertical;
 
-        if (verticalInput > 0)
-        {
-            GetComponent<Rigidbody>().velocity = transform.forward * boatSpeed * verticalInput;
-        }
-        else if (verticalInput < 0)
-        {
-            GetComponent<Rigidbody>().velocity = transform.forward * boatSpeed * verticalInput;
-        }
-
-        // Rotate the car left or right based on player input
-        transform.Rotate(0, horizonrtalInput * boatSpeed, 0);
+        // CONTROL THE BOAT SCRIPT GOES HERE---
     
 
-    boat.rotation = transform.rotation;
+        boat.rotation = transform.rotation;
 
         boat.transform.localRotation = boat.transform.rotation;
 
