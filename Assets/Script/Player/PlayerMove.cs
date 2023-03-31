@@ -95,14 +95,20 @@ public class PlayerMove : MonoBehaviour
         horizonrtalInput = joystick.Horizontal;
         verticalInput = joystick.Vertical;
 
-        //boat.velocity = new Vector3(joystick.Horizontal * boatSpeed, boat.velocity.y,joystick.Vertical * boatSpeed);
+        if (verticalInput > 0)
+        {
+            GetComponent<Rigidbody>().velocity = transform.forward * boatSpeed * verticalInput;
+        }
+        else if (verticalInput < 0)
+        {
+            GetComponent<Rigidbody>().velocity = transform.forward * boatSpeed * verticalInput;
+        }
 
-        boat.AddForce(Vector3.forward * verticalInput * moveSpeed);
+        // Rotate the car left or right based on player input
+        transform.Rotate(0, horizonrtalInput * boatSpeed, 0);
+    
 
-        Quaternion targetRotation = Quaternion.LookRotation(boat.velocity);
-        boat.transform.rotation = Quaternion.Slerp(boat.transform.rotation, targetRotation, Time.deltaTime * 5f);
-
-        transform.rotation = boat.rotation;
+    boat.rotation = transform.rotation;
 
         boat.transform.localRotation = boat.transform.rotation;
 
