@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class PlayerArrow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public Transform dropTarget;
+    public float rotationSpeed;
+
+    private PlayerPickup playerPickup;
+
+    private void Start()
     {
-        
+        playerPickup = FindObjectOfType<PlayerPickup>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        if (playerPickup.isHolding)
+        {
+            RotateArrow();
+        }
+
+        else
+        {
+
+
+            return;
+
+        }
+       
+    }
+
+    private void RotateArrow()
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dropTarget.position - transform.position)
+           , rotationSpeed * Time.deltaTime);
     }
 }

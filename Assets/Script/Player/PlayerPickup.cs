@@ -20,6 +20,8 @@ public class PlayerPickup : MonoBehaviour
     private PlayerMove playerMove;
     private PlayerDrop playerDrop;
 
+    private GameObject theArrow;
+
     [HideInInspector]
     public bool isHolding;
 
@@ -28,6 +30,8 @@ public class PlayerPickup : MonoBehaviour
         playerMove = GetComponent<PlayerMove>();
         playerDrop = FindObjectOfType<PlayerDrop>();
 
+
+        theArrow.SetActive(false);
 
     }
 
@@ -53,6 +57,9 @@ public class PlayerPickup : MonoBehaviour
             pickedObject.transform.localPosition = new Vector3(0, 0.3f, 0);
             pickedObject.transform.localRotation = Quaternion.Euler(0,0,0);
 
+            //enabling arrow
+            theArrow.SetActive(true);
+
         }
 
         if(playerMove.pickedLost && pickedObject != null && playerMove.holdStrength <= 0 )
@@ -76,6 +83,9 @@ public class PlayerPickup : MonoBehaviour
             pickedObject.layer = 0;
 
             pickedObject = null;
+
+            theArrow.SetActive(false);
+
         }
 
         if (playerDrop.missionCompleted)
@@ -99,6 +109,8 @@ public class PlayerPickup : MonoBehaviour
             pickedObject.SetActive(false);
 
             pickedObject = null;
+
+            theArrow.SetActive(false);
 
 
         }
