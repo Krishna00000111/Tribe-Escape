@@ -20,7 +20,7 @@ public class PlayerPickup : MonoBehaviour
     private PlayerMove playerMove;
     private PlayerDrop playerDrop;
 
-    private GameObject theArrow;
+    public GameObject theArrow;
 
     [HideInInspector]
     public bool isHolding;
