@@ -20,6 +20,7 @@ public class PlayerArrow : MonoBehaviour
         if (playerPickup.isHolding)
         {
             RotateArrow();
+            transform.position = playerPickup.transform.position + new Vector3(0, 5 , 0);
         }
 
         else
