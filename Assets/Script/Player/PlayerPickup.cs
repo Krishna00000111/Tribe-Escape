@@ -8,9 +8,6 @@ public class PlayerPickup : MonoBehaviour
 
     public Transform sphereOrigin;
 
-    public GameObject theArrow;
-    public Transform theDrop;
-
     public float sphereRadius;
     public LayerMask layerMask;
 
@@ -31,8 +28,7 @@ public class PlayerPickup : MonoBehaviour
         playerMove = GetComponent<PlayerMove>();
         playerDrop = FindObjectOfType<PlayerDrop>();
 
-        //Searching for drop area by name
-        theDrop = GameObject.Find("Drop Area").transform;
+
     }
 
     private void Update()
@@ -57,9 +53,6 @@ public class PlayerPickup : MonoBehaviour
             pickedObject.transform.localPosition = new Vector3(0, 0.3f, 0);
             pickedObject.transform.localRotation = Quaternion.Euler(0,0,0);
 
-
-            //Set direction for arrows
-            theArrow.transform.rotation = Quaternion.Slerp(theArrow.transform.rotation, theDrop.transform.rotation, 2 * Time.deltaTime); ;
         }
 
         if(playerMove.pickedLost && pickedObject != null && playerMove.holdStrength <= 0 )

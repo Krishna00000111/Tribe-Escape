@@ -93,9 +93,6 @@ public class TribalAI : MonoBehaviour
 
     private void Patroling() 
     {
-        
-
-
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
