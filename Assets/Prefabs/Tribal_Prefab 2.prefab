@@ -175,10 +175,10 @@ MonoBehaviour:
   stoneThrowSpeed: 35
   directionArrow: {fileID: 899809214690168604}
   handPos: {fileID: 411384745198395000}
-  walkPoint: {x: 0, y: 0, z: 0}
+  walkPoint: {x: -52.7, y: 0, z: -96.64}
   walkPointRange: 45
   timeBtwAttacks: 0.8
-  sightRange: 11
+  sightRange: 13
   attackRange: 7
   playerInSightRange: 0
   playerInAttackRange: 0

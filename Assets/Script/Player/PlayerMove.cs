@@ -95,7 +95,7 @@ public class PlayerMove : MonoBehaviour
         horizonrtalInput = joystick.Horizontal;
         verticalInput = joystick.Vertical;
 
-        // CONTROL THE BOAT SCRIPT GOES HERE---
+        // CONTROL THE BOAT SCRIPT GOES HERE--- 
     
 
         boat.rotation = transform.rotation;

@@ -38,7 +38,7 @@ public class PlayerPickup : MonoBehaviour
             isHolding = true;
             pickedObject = hit.collider.gameObject;
             pickedObject.GetComponent<Rigidbody>().isKinematic = true;
-            pickedObject.GetComponent<CapsuleCollider>().isTrigger = true;
+            pickedObject.GetComponent<Collider>().isTrigger = true;
             pickedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             prevPosition = pickedObject.transform.position;
 
@@ -64,7 +64,7 @@ public class PlayerPickup : MonoBehaviour
             float forceMagnitude = Mathf.Clamp(0, 0, movement.magnitude * 5000);
             pickedObject.GetComponent<Rigidbody>().AddForce(movement.normalized * forceMagnitude *50);
 
-            pickedObject.GetComponent<CapsuleCollider>().isTrigger = false;
+            pickedObject.GetComponent<Collider>().isTrigger = false;
 
             pickedObject.transform.parent = null;
 
